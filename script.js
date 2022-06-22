@@ -225,7 +225,7 @@ fetch(BASE_URL + 'users')
                     .then(usersPostsComments => {
                             users.forEach(person => {
                             let myPosts = usersPosts.filter(post => post.userId === person.id);
-                        //  console.log(person, myPosts);
+                         console.log(person, myPosts);
 
                       renderUserAlboms(myPosts, person);
 
@@ -261,7 +261,7 @@ fetch(BASE_URL + 'users')
 
 function renderUserAlbomsComments(comments, post) {
         let div = document.createElement('div');
-        div.classList.add('card');
+        div.classList.add('card_post');
         let commentar = document.createElement('p');
         commentar.classList.add('card_commentar');
         commentar.textContent = post.title;

@@ -3,6 +3,7 @@
     font-size: 40px;
 }
 .card{
+    margin: 10px;
     width: auto;
     height: auto;
     border-radius: 25px;
@@ -11,4 +12,10 @@
 }
 .card_commentar{
     font-size: 40px;
+}
+.card_post{
+    margin: 10px;
+    border-radius: 10px;
+    background-color: rgba(245, 123, 0, 0.555);
+    border: 2px solid rgba(215, 47, 0, 0.861);
 }
