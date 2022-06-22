@@ -1,0 +1,14 @@
+.text{
+    
+    font-size: 40px;
+}
+.card{
+    width: auto;
+    height: auto;
+    border-radius: 25px;
+    background-color: brown;
+    border: 2px solid blueviolet;
+}
+.card_commentar{
+    font-size: 40px;
+}
