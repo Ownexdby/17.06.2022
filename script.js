@@ -225,16 +225,19 @@ fetch(BASE_URL + 'users')
                     .then(usersPostsComments => {
                             users.forEach(person => {
                             let myPosts = usersPosts.filter(post => post.userId === person.id);
-                         console.log(person, myPosts);
-
+                        //  console.log(myPosts, 'posts');
+                                let pyPostsComments = myPosts.map(post => {
+                                    let myComments = usersPostsComments.filter(comment => comment.postId === post.id);
+                                    // console.log(myComments, 'коментар');
+                                    // console.log(post, 'Пост');
+                                    post.comments = myComments;
+                                    // console.log(post, 'Пост онов');
+                                    return post;
+                                })
+                                // console.log(pyPostsComments);
                       renderUserAlboms(myPosts, person);
 
                         }) 
-                        usersPosts.forEach(fasting => {
-                            let myComments = usersPostsComments.filter(comments => comments.postId === fasting.id);
-                            console.log(fasting, myComments);
-                            renderUserAlbomsComments(myComments, fasting);
-                        })
                     })
             })
     })
@@ -252,25 +255,44 @@ fetch(BASE_URL + 'users')
             let albomText = document.createElement('p');
             albomText.classList.add('text_albom');
             albomText.textContent = albom.title;
+            let commentsConteiner = document.createElement('div');
+            commentsConteiner.classList.add('coments_conteiner');
+            // console.log(albom);
+            let buttonOpenCloseComments = document.createElement('button');
+            buttonOpenCloseComments.classList.add('button_open_close');
+            buttonOpenCloseComments.textContent = 'Відкрити / Закрити';
+            
+            albom.comments.forEach(function (comment) {
+                let textComment = document.createElement('p');
+                textComment.classList.add('text_comment');
+                textComment.textContent = comment.body;
+                
+                let buttonDeleteComment = document.createElement('button');
+                buttonDeleteComment.classList.add('button_delete_comment');
+                buttonDeleteComment.textContent = 'X';
+                buttonDeleteComment.addEventListener('click', function () {
+                    textComment.classList.toggle('delet');
+                    buttonDeleteComment.remove();
+                });
+                commentsConteiner.append(textComment, buttonDeleteComment);
+            }
+                
+            )
 
-            div.append(albomText);
+
+            buttonOpenCloseComments.addEventListener('click', function () {
+                
+                commentsConteiner.classList.toggle('z_index_one');
+                // console.log('hii');
+            });
+            div.append(albomText, buttonOpenCloseComments, commentsConteiner);
         })
 
         document.body.append(div);
 }
-
-function renderUserAlbomsComments(comments, post) {
-        let div = document.createElement('div');
-        div.classList.add('card_post');
-        let commentar = document.createElement('p');
-        commentar.classList.add('card_commentar');
-        commentar.textContent = post.title;
-        div.append(commentar);
-        comments.forEach(comment => {
-                    let commentarText = document.createElement('p');
-                    commentarText.classList.add('text_commentar');
-                    commentarText.textContent = comment.body;
-            div.append(commentarText);
-        })
-    document.body.append(div);
-    }
+// Повторити усі методи масивів (мап, фор іч , редюс, фільтер).
+// Повторити обєкти як їх перебирати як їх видаляти (Методи обєктів).
+// Повторити івентн дом. кліки блур фокус, маус, кіпрес кідаун.
+// Дом дерево.
+// Http XML request і fech request.
+// Проміси що це таке що вони приймають що повертають які є методи і що вони роблять.

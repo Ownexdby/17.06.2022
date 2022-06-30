@@ -3,11 +3,12 @@
     font-size: 40px;
 }
 .card{
+    position: relative;
     margin: 10px;
     width: auto;
     height: auto;
     border-radius: 25px;
-    background-color: brown;
+    background-color: rgb(186, 114, 114);
     border: 2px solid blueviolet;
 }
 .card_commentar{
@@ -17,5 +18,46 @@
     margin: 10px;
     border-radius: 10px;
     background-color: rgba(245, 123, 0, 0.555);
-    border: 2px solid rgba(215, 47, 0, 0.861);
+    border: 2px solid rgba(215, 47, 0, 0.66);
+}
+.text_albom{
+    color: rgb(247, 247, 248);
+    font-weight: bold;
+    font-size: 30px;
+}
+.text_albom:first-letter {
+color: rgba(206, 230, 231, 0.941);
+text-transform: uppercase;
+font-size: 28px;
+font-family: sans-serif;
+}
+.z_index_one{
+    z-index: -1;
+    width: 0px;
+    height: 0px;
+}
+.coments_conteiner{
+    position: relative;
+    background-color:aliceblue;
+    border: 2px solid yellow;
+    border-radius: 10px;
+    width: auto;
+    height: auto;
+}
+.text_comment:first-letter {
+color: rgba(12, 25, 14, 0.941);
+text-transform: uppercase;
+font-size: 28px;
+font-family: sans-serif;
+}
+.delet{
+    position: relative;
+    z-index: -1;
+    width: 0px;
+    height: 0px;
+}
+.button_delete_comment{
+border-radius: 4px;
+    background-color:rgb(176, 0, 0);
+    border: 2px groove rgb(123, 47, 47);
 }
